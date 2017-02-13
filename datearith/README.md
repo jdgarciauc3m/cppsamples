@@ -20,7 +20,7 @@ We are required to develop a duration class with the following requirements:
 We are required to develop a date class with the following requirements:
 
 * It must represent dates between january 1, 1900 and december 31, 2200.
-* It must consider leap years (recall that year 2000 was not leap).
+* It must consider leap years (recall that year 2000 was a leap year, while 1900 was not).
 * It must support copy construction and copy assignment.
 * It must support move semantics.
 * Default constructed values must be set to january 1, 1900.
