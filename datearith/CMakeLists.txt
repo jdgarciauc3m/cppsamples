@@ -17,4 +17,9 @@ message(FATAL_ERROR "Unsupported compiler")
 endif()
 
 #Process subdirectories
+add_subdirectory(src)
 add_subdirectory(app)
+
+#Unit testing
+enable_testing()
+add_subdirectory(utest)
