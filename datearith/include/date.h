@@ -1,6 +1,8 @@
 #ifndef DATEARITH_DATE_H
 #define DATEARITH_DATE_H
 
+#include "duration.h"
+
 namespace datearith {
 
 struct invalid_date {};
@@ -19,6 +21,10 @@ public:
   int day() const noexcept { return day_; }
   int month() const noexcept { return month_; }
   int year() const noexcept { return year_; }
+
+  int days_from_epoch() const noexcept; // From 1/1/1900
+
+  date operator+(duration d);
 
 private:
   int day_{1};
