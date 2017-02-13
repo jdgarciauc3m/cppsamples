@@ -9,16 +9,14 @@ namespace {
   }
 
   int max_days(int month, int year) {
-    switch (month) {
-      case 1: case 3: case 5: case 7:
-      case 8: case 10: case 12:
-        return 31;
-      case 4: case 6: case 9: case 11:
-        return 30;
-      case 2:
-        return is_leap(year)?29:28;
-    }
-    return 0;
+    static int days[] = {
+      31, 28, 31, 30,
+      31, 30, 31, 31,
+      30, 31, 30, 31
+    };
+    int r = days[month-1];
+    if (2==month && is_leap(year)) r++;
+    return r;
   }
 }
 
