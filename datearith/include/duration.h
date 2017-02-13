@@ -21,6 +21,8 @@ public:
   int months() const noexcept { return months_; }
   int years() const noexcept { return years_; }
 
+  int as_days() const noexcept { return years_ * 365 + months_ * 30 + days_; }
+
 private:
   void normalize() noexcept;
 
