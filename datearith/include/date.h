@@ -7,6 +7,7 @@ struct invalid_date {};
 
 class date {
 public:
+  date() = default;
   date(int d, int m, int y);
 
   int day() const noexcept { return day_; }
@@ -14,9 +15,9 @@ public:
   int year() const noexcept { return year_; }
 
 private:
-  int day_;
-  int month_;
-  int year_;
+  int day_{1};
+  int month_{1};
+  int year_{1900};
 };
 
 }

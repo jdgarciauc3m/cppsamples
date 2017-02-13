@@ -1,6 +1,15 @@
 #include "date.h"
 #include <gtest/gtest.h>
 
+TEST(date_init, defconstruct)
+{
+  using namespace datearith;
+  date d;
+  EXPECT_EQ(1, d.day());
+  EXPECT_EQ(1, d.month());
+  EXPECT_EQ(1900, d.year());
+}
+
 TEST(date_init, valid)
 {
   using namespace datearith;
