@@ -4,11 +4,11 @@ namespace datearith {
 
 namespace {
 
-  bool is_leap(int y) {
+  bool is_leap(int y) noexcept {
     return ((y % 4 == 0) && (y % 100 != 0)) || (y % 400 == 0);
   }
 
-  int max_days(int month, int year) {
+  int max_days(int month, int year) noexcept {
     static int days[] = {
       31, 28, 31, 30,
       31, 30, 31, 31,

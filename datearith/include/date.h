@@ -7,8 +7,14 @@ struct invalid_date {};
 
 class date {
 public:
-  date() = default;
+  date() noexcept = default;
   date(int d, int m, int y);
+
+  date(const date &) noexcept = default;
+  date & operator=(const date &) noexcept = default;
+
+  date(date &&) noexcept = default;
+  date & operator=(date &&) noexcept = default;
 
   int day() const noexcept { return day_; }
   int month() const noexcept { return month_; }
