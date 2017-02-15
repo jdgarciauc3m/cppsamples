@@ -88,4 +88,8 @@ date date::operator+(duration delta) {
   return date{days};
 }
 
+duration operator-(date d1, date d2) {
+  return duration{d1.days_from_epoch() - d2.days_from_epoch(), 0, 0};
+}
+
 }

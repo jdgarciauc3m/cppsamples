@@ -33,6 +33,8 @@ private:
   int year_{1900};
 };
 
+duration operator-(date d1, date d2);
+
 }
 
 #endif
