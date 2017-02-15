@@ -82,24 +82,10 @@ int date::days_from_epoch() const noexcept {
 
   return d;
 }
-/*
+
 date date::operator+(duration delta) {
   int days = days_from_epoch() + delta.as_days();
-  
-  year_ = 1900;
-  int days_current_year
-  while (days >= 
-  year_ = result / 365;
-  days -= year_ * 365;
-  nmonth_ = 0;
-  int days_current_month = max_days(nmonth_+1, year_);
-  while (days >= days_current_month) {
-    days -= days_current_month;
-    nmont_++;
-    days_current_month = max_days(nmonth_+1, year_);
-  }
-  day_ = days;
+  return date{days};
 }
-*/
 
 }
