@@ -1,5 +1,8 @@
 #include "date.h"
 
+#include <iostream>
+using namespace std;
+
 namespace datearith {
 
 namespace {
@@ -26,6 +29,10 @@ namespace {
     } 
     return r;
   }
+
+  int days_in_year(int year) noexcept {
+    return (is_leap(year))?366:365;
+  }
 }
 
 date::date(int d, int m, int y) :
@@ -37,6 +44,25 @@ date::date(int d, int m, int y) :
   if (1 > month_ || month_ > 12) throw invalid_date{};
   if (day_ < 1) throw invalid_date{};
   if (day_ > max_days(month_,year_)) throw invalid_date{};
+}
+
+date::date(int days)
+{
+  year_ = 1900;
+
+  for (int delta = days_in_year(year_); days >= delta; delta = days_in_year(year_)) {
+    days -= delta;
+    year_++;
+  }
+
+
+  month_ = 1;
+  for (int delta=max_days(month_,year_); days >= delta; delta = max_days(month_,year_)) {
+    days -= delta;
+    month_++;
+  }
+  
+  day_ = days +1;
 }
 
 int date::days_from_epoch() const noexcept {
@@ -56,12 +82,12 @@ int date::days_from_epoch() const noexcept {
 
   return d;
 }
-
-//date date::operator+(duration delta) {
 /*
+date date::operator+(duration delta) {
   int days = days_from_epoch() + delta.as_days();
   
   year_ = 1900;
+  int days_current_year
   while (days >= 
   year_ = result / 365;
   days -= year_ * 365;
@@ -73,8 +99,7 @@ int date::days_from_epoch() const noexcept {
     days_current_month = max_days(nmonth_+1, year_);
   }
   day_ = days;
+}
 */
-//}
-
 
 }

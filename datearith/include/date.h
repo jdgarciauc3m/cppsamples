@@ -11,6 +11,7 @@ class date {
 public:
   date() noexcept = default;
   date(int d, int m, int y);
+  date(int days);
 
   date(const date &) noexcept = default;
   date & operator=(const date &) noexcept = default;
