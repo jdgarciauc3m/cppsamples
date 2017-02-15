@@ -25,7 +25,6 @@ public:
 
   int days_from_epoch() const noexcept; // From 1/1/1900
 
-  date operator+(duration d);
 
 private:
   int day_{1};
@@ -33,6 +32,7 @@ private:
   int year_{1900};
 };
 
+date operator+(date d, duration delta);
 duration operator-(date d1, date d2);
 
 }

@@ -83,8 +83,8 @@ int date::days_from_epoch() const noexcept {
   return d;
 }
 
-date date::operator+(duration delta) {
-  int days = days_from_epoch() + delta.as_days();
+date operator+(date d, duration delta) {
+  int days = d.days_from_epoch() + delta.as_days();
   return date{days};
 }
 
